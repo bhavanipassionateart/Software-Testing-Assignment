@@ -1,0 +1,22 @@
+{
+  "name": "magneto_projectone",
+  "version": "1.0.0",
+  "description": "Magneto_ProjectOne",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --no-timeouts",
+    "para": "mocha --no-timeouts --parallel",
+    "report": "mcha --no-timeouts --reporter mochawesome",
+    "parareport": "mocha --no-timeouts --parallel --reporter mochawesome --require mochawesome/register"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "actions": "^1.3.0",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
+    "selenium-webdriver": "^4.9.1"
+  }
+}

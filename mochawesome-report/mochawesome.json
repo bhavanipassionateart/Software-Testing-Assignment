@@ -1,0 +1,235 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-12-19T09:04:42.503Z",
+    "end": "2023-12-19T09:05:44.321Z",
+    "duration": 61818,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9ed9c46a-b621-466b-b0dc-295641e009b3",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "461503d0-02c8-414f-8bc1-4cb51d2ff788",
+          "title": "select the product in dropdown menu in women category",
+          "fullFile": "C:\\Users\\bhava\\repos\\Software-Testing-Assignment\\test\\test1.js",
+          "file": "\\test\\test1.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "I should get the product by navigating the dropdown menu in the desired category ",
+              "fullTitle": "select the product in dropdown menu in women category I should get the product by navigating the dropdown menu in the desired category ",
+              "timedOut": false,
+              "duration": 25197,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const driver = await new Builder().forBrowser('firefox').build();\n  \n    try{\n    await driver.get('https://magento.softwaretestingboard.com');\n    //driver.sleep(20000);\n    // Create an instance of the Actions class\n\n    //Click on Women Link\n    await driver.wait(until.elementLocated(By.css('#ui-id-4')),1000);\n    const Women = await driver.findElement(By.css('#ui-id-4'));\n    await Women.click();\n\n    //Click on tees Link\n    await driver.wait(until.elementLocated(By.linkText('Tees')),1000);\n    const Tees = await driver.findElement(By.linkText('Tees'));\n    await Tees.click();\n\n    //Click on 4th  Product in Tees\n    await driver.wait(until.elementLocated(By.partialLinkText('Diva Gym T')),1000);\n    const Product = await driver.findElement(By.partialLinkText('Diva Gym T'));\n    await Product.click();\n    //Add the size\n    await driver.wait(until.elementLocated(By.css('#option-label-size-143-item-166')),1000);\n    const size= await driver.findElement(By.css('#option-label-size-143-item-166'));\n    await size.click();\n    //Add the color\n    await driver.wait(until.elementLocated(By.css('#option-label-color-93-item-53')),1000);\n    const color= await driver.findElement(By.css('#option-label-color-93-item-53'));\n    await color.click();\n    //Add to Cart\n    await driver.wait(until.elementLocated(By.css('#product-addtocart-button')),1000);\n    const Cart = await driver.findElement(By.css('#product-addtocart-button'));\n    await Cart.click();\n\n   //Assert the cart message\n   await driver.wait(until.elementLocated(By.xpath('//div[@role=\"alert\"]')),2000);\n   const CartMessage = await driver.findElement(By.xpath('//div[@role=\"alert\"]'));\n\n   //Extract text\n   const CartMessageText= await CartMessage.getText();\n   console.log(CartMessageText);\n   CartMessageText.should.equals('You added Diva Gym Tee to your shopping cart.');\n   //Find the first product\n   await driver.wait(until.elementLocated(By.css('.base')),4000);\n   const productTitle = await driver.findElement(By.css('.base'));\n\n   // Find information in the product we selected\n   //let productTitle = await product.findElement(By.css('.product-item-link'));\n   \n\n   //Extract text\n   let productTitleText = await productTitle.getText();\n  \n\n   productTitleText.should.equal('Diva Gym Tee');\n   \n\n}catch (error) {\n    console.log(error);\n}finally{\n   // await driver.quit();\n}",
+              "err": {},
+              "uuid": "f8333b66-ebfa-4fed-8adb-90081d8b869b",
+              "parentUUID": "461503d0-02c8-414f-8bc1-4cb51d2ff788",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f8333b66-ebfa-4fed-8adb-90081d8b869b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 25197,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        },
+        {
+          "uuid": "61ccdeb5-15a7-4f28-b91a-e6fd8602e82e",
+          "title": "Mousehover Test",
+          "fullFile": "C:\\Users\\bhava\\repos\\Software-Testing-Assignment\\test\\test2.js",
+          "file": "\\test\\test2.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Mousehover Test\"",
+              "fullTitle": "Mousehover Test \"before all\" hook in \"Mousehover Test\"",
+              "timedOut": false,
+              "duration": 4171,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('firefox').build();",
+              "err": {},
+              "uuid": "e295012c-ce49-4472-afba-886e23ba745d",
+              "parentUUID": "61ccdeb5-15a7-4f28-b91a-e6fd8602e82e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Mousehover Test\"",
+              "fullTitle": "Mousehover Test \"after all\" hook in \"Mousehover Test\"",
+              "timedOut": false,
+              "duration": 1552,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "4c8c7bcc-4951-4fb2-ba8e-301f78433f5e",
+              "parentUUID": "61ccdeb5-15a7-4f28-b91a-e6fd8602e82e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should select a category using mouse hover",
+              "fullTitle": "Mousehover Test should select a category using mouse hover",
+              "timedOut": false,
+              "duration": 21736,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Open the webpage\nawait driver.get('https://magento.softwaretestingboard.com');\n // Create an instance of the Actions class\n //const actions = new Actions(driver);\n \n// Locate the element to mouseover\nawait driver.wait(until.elementLocated(By.css('#ui-id-4')),5000);\nconst Women = await driver.findElement(By.css('#ui-id-4'));\n\nconst actions = driver.actions({bridge: true}); \n \nawait actions.move({duration:3000,origin:Women,y:0}).perform();\n\n\n// Locate and click on the desired sub-menu item or category\nawait driver.wait(until.elementLocated(By.xpath('//a[@id=\"ui-id-9\"]')),5000);\nconst Tops = await driver.findElement(By.xpath('//a[@id=\"ui-id-9\"]'));\nawait actions.move({duration:3000,origin:Tops,x:0}).perform();\n//Click on tees Link\nawait driver.wait(until.elementLocated(By.linkText('Tees')),10000);\nconst Tees = await driver.findElement(By.linkText('Tees')).click();\n\n//Click on 4th  Product in Tees\nawait driver.wait(until.elementLocated(By.partialLinkText('Diva Gym T')),50000);\nconst Product = await driver.findElement(By.partialLinkText('Diva Gym T'));\nawait Product.click();\ndriver.sleep(5000);\n//Add the size\nawait driver.wait(until.elementLocated(By.css('#option-label-size-143-item-166')),50000);\nconst size= await driver.findElement(By.css('#option-label-size-143-item-166'));\nawait size.click();\n//Add the color\nawait driver.wait(until.elementLocated(By.css('#option-label-color-93-item-53')),50000);\nconst color= await driver.findElement(By.css('#option-label-color-93-item-53'));\nawait color.click();\n//Add to Cart\nawait driver.wait(until.elementLocated(By.css('#product-addtocart-button')),50000);\nconst Cart = await driver.findElement(By.css('#product-addtocart-button'));\nawait Cart.click();\n\n   //Assert the cart message\n   await driver.wait(until.elementLocated(By.xpath('//div[@role=\"alert\"]')),50000);\n   const CartMessage = await driver.findElement(By.xpath('//div[@role=\"alert\"]'));\n\n   //Extract text\n   const CartMessageText= await CartMessage.getText();\n   console.log(CartMessageText);\n   //assert.strictEqual(CartMessageText,'You added Diva Gym Tee to your shopping cart.');\n   CartMessageText.should.equal('You added Diva Gym Tee to your shopping cart.');",
+              "err": {},
+              "uuid": "7ea66733-3009-4d40-918b-e7b898496d13",
+              "parentUUID": "61ccdeb5-15a7-4f28-b91a-e6fd8602e82e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7ea66733-3009-4d40-918b-e7b898496d13"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 21736,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        },
+        {
+          "uuid": "f3055627-e0b1-457c-8446-51cf3589c0d2",
+          "title": "Search for product",
+          "fullFile": "C:\\Users\\bhava\\repos\\Software-Testing-Assignment\\test\\test3.js",
+          "file": "\\test\\test3.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "32bccbad-8cd6-41bd-a7e0-daed4d972c4f",
+              "title": "I search for a product",
+              "fullFile": "C:\\Users\\bhava\\repos\\Software-Testing-Assignment\\test\\test3.js",
+              "file": "\\test\\test3.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "I should see the product that I have searched for",
+                  "fullTitle": "Search for product I search for a product I should see the product that I have searched for",
+                  "timedOut": false,
+                  "duration": 9130,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// start web browser\nconst driver = await new Builder().forBrowser('firefox').build();\n// search for a product\ntry{\n    // Move to magento site\n           await driver.get('https://magento.softwaretestingboard.com/');\n           const TopsInWomen = await driver.findElement(By.css('li.level0:nth-child(2)'));\n           await women.click();\n\n           //const Tops = await driver.findElement(By.css('.nav-2-1 > ul:nth-child(2)'));\n           const women = await driver.findElement(By.css('#ui-id-9')).click();\n           //await Tops.click();\n\n           //Get the search input\n           //await driver.wait(until.elementLocated(By.css('#search')),1000);\n           //await driver.findElement(By.id('search')).sendKeys('Tees',Key.RETURN);\n\n           //Find the first product\n           await driver.wait(until.elementLocated(By.css('.product-item:first-child')),1000);\n           const product = await driver.findElement(By.css('.product-item:first-child'));\n\n           // Find information in the product we selected\n           let productTitle = await product.findElement(By.css('.product-item-link'));\n           let productPrice = await product.findElement(By.css('.price'));\n\n           //Extract text\n           let productTitleText = await productTitle.getText();\n           let productPriceText = await productPrice.getText();\n\n           productTitleText.should.equal('Radiant Tee');\n           productPriceText.should.equal('$22.00');\n\n         //const products= await driver.findElement(By.className('product name product-item-name')).getText();\n         \n         //for (const product of products) {\n// Do something with the product element\nconsole.log(await product.getText());\n          //}\n}catch(error){\n    console.log(error);\n}finally{\nawait driver.quit();\n}",
+                  "err": {},
+                  "uuid": "f8e3fd9e-6c72-4db3-ab52-016aed31816c",
+                  "parentUUID": "32bccbad-8cd6-41bd-a7e0-daed4d972c4f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f8e3fd9e-6c72-4db3-ab52-016aed31816c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 9130,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
